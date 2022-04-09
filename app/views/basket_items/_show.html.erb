@@ -1,3 +1,7 @@
 <div>
   <%= item.product.name %> x <%= item.quantity %> - <%= item.total_cost %>
+  <% if item.product.discount.type_of_discount == "bonus" %>
+  <% discount = item.product.discount %>
+  <%= "You will get #{(item.quantity / discount.min_quantity) * discount.bonus} for free" %>
+  <% end %>
 </div>
