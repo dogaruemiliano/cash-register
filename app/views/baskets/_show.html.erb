@@ -1,0 +1,6 @@
+<div>
+  <h2>Basket</h2>
+  <% basket.items.each do |item| %>
+    <%= render 'basket_items/show', item: item %>
+  <% end %>
+</div>
