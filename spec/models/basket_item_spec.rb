@@ -4,7 +4,7 @@ RSpec.describe BasketItem, type: :model do
   subject do
     product = Product.create!(product_code: 'SR1', name: 'Strawberry', price: 5.00)
     basket = Basket.create!
-    described_class.create!(product: product, basket: basket, amount: 3)
+    described_class.create!(product: product, basket: basket, quantity: 3)
   end
   
   describe 'Association' do
@@ -24,16 +24,16 @@ RSpec.describe BasketItem, type: :model do
       subject.basket = nil
       expect(subject).to_not be_valid
     end
-    it 'is not valid without an amount' do
-      subject.amount = nil
+    it 'is not valid without an quantity' do
+      subject.quantity = nil
       expect(subject).to_not be_valid
     end
-    it 'is not valid with a neutral amount' do
-      subject.amount = 0
+    it 'is not valid with a neutral quantity' do
+      subject.quantity = 0
       expect(subject).to_not be_valid
     end
-    it 'is not valid with a negative amount' do
-      subject.amount = -2
+    it 'is not valid with a negative quantity' do
+      subject.quantity = -2
       expect(subject).to_not be_valid
     end
 

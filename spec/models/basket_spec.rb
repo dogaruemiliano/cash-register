@@ -8,9 +8,9 @@ RSpec.describe Basket, type: :model do
 
     sub = described_class.create!
   
-    BasketItem.create(product: p1, basket: sub, amount: 1)
-    BasketItem.create(product: p2, basket: sub, amount: 5)
-    BasketItem.create(product: p3, basket: sub, amount: 8)
+    BasketItem.create(product: p1, basket: sub, quantity: 1)
+    BasketItem.create(product: p2, basket: sub, quantity: 5)
+    BasketItem.create(product: p3, basket: sub, quantity: 8)
     
     sub
   end
