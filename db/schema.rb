@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_04_09_173710) do
   create_table "basket_items", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "basket_id", null: false
-    t.integer "quantity"
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["basket_id"], name: "index_basket_items_on_basket_id"

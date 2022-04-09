@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'products#index'
+
+  post 'basket/:basket_id/add/:product_id', to: 'basket_items#add', as: :add_item
+  post 'basket/:basket_id/remove/:product_id', to: 'basket_items#remove', as: :remove_item
 end

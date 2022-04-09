@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0.rc1'
   gem "rails-controller-testing"
   gem 'shoulda-matchers'
+  gem 'pry-byebug'
 end
 
 group :development do

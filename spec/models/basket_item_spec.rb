@@ -4,7 +4,7 @@ RSpec.describe BasketItem, type: :model do
   subject do
     product = Product.create!(product_code: 'SR1', name: 'Strawberry', price: 5.00)
     basket = Basket.create!
-    described_class.create!(product: product, basket: basket, quantity: 3)
+    described_class.create!(product: product, basket: basket)
   end
   
   describe 'Association' do
@@ -14,6 +14,9 @@ RSpec.describe BasketItem, type: :model do
 
   describe 'Validations' do
     it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+    it 'is valid even without a quantity attribute (defaults to 1)' do
       expect(subject).to be_valid
     end
     it 'is not valid without a product' do
@@ -39,7 +42,8 @@ RSpec.describe BasketItem, type: :model do
 
     describe "Methods" do
       it 'should return the total cost of products of this type' do
-        expect(subject.total_cost).to eq(15)
+        subject.quantity = 2
+        expect(subject.total_cost).to eq(10.00)
       end
     end
     

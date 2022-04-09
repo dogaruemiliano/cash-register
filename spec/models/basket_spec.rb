@@ -16,7 +16,7 @@ RSpec.describe Basket, type: :model do
   end
 
   describe "Associations" do
-    it { should have_many :basket_items}
+    it { should have_many :items}
   end
 
   describe 'Methods' do

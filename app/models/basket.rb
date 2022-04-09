@@ -1,9 +1,9 @@
 class Basket < ApplicationRecord
-  has_many :basket_items
+  has_many :items, class_name: "BasketItem"
 
   def total_cost
     cost = 0
-    basket_items.each do |item|
+    items.each do |item|
       cost += item.total_cost
     end
     cost
